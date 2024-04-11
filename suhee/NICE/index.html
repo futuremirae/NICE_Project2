@@ -2,14 +2,21 @@
 <html lang="ko">
 
 <head>
-    <title>NICE TO MATCH YOU</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--모바일 환경에서의 화면 크기와 확대/축소 옵션을 지정-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--Internet Explorer의 호환성 모드를 최신 버전으로 설정-->
+	<meta name="format-detection" content="telephone=no">
+	<!-- 모바일 뷰포트 설정으로, 반응형 디자인을 위해 필요 -->
+	<meta name="format-detection" content="telephone=no">
+	<!-- 모바일 기기에서 전화번호 자동 감지 기능을 비활성화 -->
+	<title>NICE TO MATCH YOU</title>
     <link rel="stylesheet" href="@resource/css/nice.css"/>
     <!--style은 nice.css 참조함-->
+	<script src="@resource/js/lib/jquery-3.2.1.min.js"></script>
+	<!-- jQuery 라이브러리를 로드 -->
+	<script src="@resource/js/nice.js"></script>
 </head>
 
 <body>
@@ -81,6 +88,16 @@
 				</ul>
 			</div> 
 		</nav>
+		<div class="btns">
+			<button type="button" class="btn open-nav" id="openMe">
+				<span class="blind">메뉴 열기</span>
+			</button>
+			<button type="button" class="btn close-nav">
+				<span class="blind">메뉴 열기</span>
+			</button>
+		</div>
+		<div class="nav-bg"></div>
+	</div>
 	</header>
 
 	<!-- scroller & video -->
@@ -112,11 +129,11 @@
 		</div> <!-- id="container" class="container" div-->	
 	</div> <!-- id="scroller" class="scroller" data-scrollbar -->
 
-	<script src="/@resource//js/lib/gsap.min.js"></script>
-	<script src="/@resource//js/lib/ScrollTrigger.min.js"></script>
-	<script src="/@resource//js/lib/smooth-scrollbar.js"></script>
-	<script src="/@resource//js/lib/aos.js"></script>
-	<script src="/@resource//js/lib/swiper-bundle.js"></script>
+	<script src="@resource/js/lib/gsap.min.js"></script>
+	<script src="@resource/js/lib/ScrollTrigger.min.js"></script>
+	<script src="@resource/js/lib/smooth-scrollbar.js"></script>
+	<script src="@resource/js/lib/aos.js"></script>
+	<script src="@resource/js/lib/swiper-bundle.js"></script>
 
 </body>
 
