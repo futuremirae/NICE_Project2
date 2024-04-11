@@ -1,3 +1,12 @@
+/*
+@font-face: 웹 폰트를 정의하는 규칙
+font-family: 폰트의 이름을 지정
+font-weight: 폰트의 두께를 지정
+font-style: 폰트의 스타일을 지정 (normal, italic 등).
+src: 폰트 파일의 경로를 지정, 여러 형식의 폰트 파일(eot, woff2, woff, ttf)을 지정할 수 있음
+font-display: swap;: 폰트를 로딩할 때, 폰트가 사용 가능하지 않을 경우 fallback 폰트를 먼저 보여주고, 폰트가 로드되면 교체하는 방식으로 보여줌
+*/
+
 @charset "utf-8";
 
 @font-face {
@@ -132,8 +141,12 @@
 }
 body,
 a,
-button, input, select, textarea{
+button, input, select, textarea{ /* /* body, a, button, input, select, textarea: 이 규칙은 웹 페이지의 기본 텍스트 요소들에 대해 사용할 폰트를 지정 */
 	font-family: 'SUIT', 'Apple SD Gothic Neo', Helvetica, '맑은 고딕', 'Malgun Gothic', '돋움', Dotum, sans-serif;
+    /* 먼저 'SUIT' 폰트를 시도하고, 해당 폰트가 사용 가능하지 않을 경우에는 다른 폰트들('Apple SD Gothic Neo', 'Helvetica', '맑은 고딕', 등)을 차례로 시도 */
 	font-weight: normal; word-break: keep-all;
+    /* 폰트 두께 기본, 텍스트 내의 단어가 한줄을 넘어갈 때 단어를 분리하지 않고 그대로 유지 */
 }
-.ff-nanum {font-family: 'NanumSquareNeo';}
+
+.ff-nanum {font-family: 'NanumSquareNeo';} /* .ff-nanum {font-family: 'NanumSquareNeo';}: 특정 클래스(.ff-nanum)를 가진 요소에 'NanumSquareNeo' 폰트를 적용하도록 지정 */
+
