@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추천 알고리즘</title>
+    <script th:src="@{/script/jquery-3.7.1.min.js}"></script>
+    <script>
+        $(function () {
+
+        });
+
+    </script>
+
+
+</head>
+
+<body>
+    <h2>추천 알고리즘 </h2>
+    <form th:action="@{/predict}" method="POST">
+        품목 검색<input type="text" placeholder="상품을 입력하세요" id="inputkeyword" name="search">
+        <input type="submit" value="검색">
+    </form>
+
+</body>
+
+</html>

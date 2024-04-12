@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이메일 발송</title>
+</head>
+
+<body>
+    <h2>email 보내기</h2>
+    <a th:href="@{/rate}">환율 링크</a>
+    <form th:action="@{/mail}" method="post">
+        <input name="address" placeholder="이메일 주소" class="form-control" value=""> <br>
+        <input name="title" placeholder="제목" class="form-control"> <br>
+        <textarea name="message" placeholder="메일 내용을 입력해주세요." cols="60" rows="20" class="form-control"></textarea>
+        <button type="submit" class="btn btn-primary mt-2">발송</button>
+    </form>
+    <a th:href="@{/search}">코사인 링크</a>
+</body>
+
+</html>
