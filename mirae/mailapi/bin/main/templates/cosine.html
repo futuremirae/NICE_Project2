@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추천 알고리즘</title>
+    <script th:src="@{/script/jquery-3.7.1.min.js}"></script>
+    <script>
+        $(function () {
+            $("#searchBtn").on('click', cosineSimilarity);
+
+
+        });
+        function cosineSimilarity() {
+            let inputKeyword = $("#search").val();
+            //alert(inputKeyword);
+            let sendData = {
+                "inputKeyword": inputKeyword
+            }
+            $.ajax({
+                url: 'predict'
+                , method: 'post'
+                , async: false
+                , data: sendData
+                , success: function (resp) {
+                    let receivedData = '';
+                    receivedData += `
+                <tr>
+        			
+        			<th>던스넘버</th>
+        			<th>회사명</th>
+        			<th>URL</th>
+        			<th>이메일</th>
+        			<th>바이어 등급</th>
+
+        		</tr>
+                    `;
+
+                    $.each(resp, function (index, item) {
+                        //console.log("예측 결과:", resp);
+                        // 객체에 직접 접근하여 출력하는 예
+                        receivedData += `
+                        <tr>
+                            
+                            <td>${item.DUNS_NO}</td>
+                            <td>${item.CMP_NM}</td>
+                            <td>${item.URL}</td>
+                            <td>${item.EML}</td>
+                            <td>${item.CONTACT_GRD_CD}</td>
+ 
+                            </tr>`;
+                    });//each 
+                    $("#cosine-list").html(receivedData);
+
+
+                }
+            })
+
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+    <h2>추천 알고리즘 </h2>
+    <form th:action="@{/predict}" method="POST">
+        품목 검색<input type="text" placeholder="상품을 입력하세요" id="search" name="inputKeyword">
+        <input type="button" value="검색" id="searchBtn">
+    </form>
+    <table id="cosine-list">
+    </table>
+
+</body>
+
+</html>
